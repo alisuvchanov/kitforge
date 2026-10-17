@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>KitForge — football shirt studio</title>
+<meta name="description" content="Design original football shirts, check the design, and export artwork. Everything stays in your browser."><meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 3 2 6l2 5 3-1v11h10V10l3 1 2-5-6-3q-1 3-4 3T8 3z' fill='%230f6a40'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<style>
+:root{--bg:#f2f3f1;--sf:#fff;--sk:#e8ebe7;--ln:#d5dad4;--fg:#161a18;--mu:#5d6761;--ac:#0f6a40;--acf:#fff;--cv:#e3e6e2;--bad:#b42318;--wn:#9a5b00;--r:6px;--r2:10px;--s:8px;--ring:0 0 0 2px var(--bg),0 0 0 4px var(--ac);--sh:0 6px 20px rgba(0,0,0,.14);--hh:56px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121513;--sf:#1a1e1b;--sk:#222724;--ln:#303733;--fg:#e9eeea;--mu:#9aa49e;--ac:#46c283;--acf:#04140b;--cv:#171b18;--bad:#ff8a80;--wn:#f0b35a;--sh:0 6px 20px rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--bg:#121513;--sf:#1a1e1b;--sk:#222724;--ln:#303733;--fg:#e9eeea;--mu:#9aa49e;--ac:#46c283;--acf:#04140b;--cv:#171b18;--bad:#ff8a80;--wn:#f0b35a;--sh:0 6px 20px rgba(0,0,0,.5)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 Archivo,"Segoe UI",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--sf);z-index:30}
+h1,h2,h3{margin:0;font-weight:700}h1{font-size:26px;font-stretch:75%;letter-spacing:.2px}h2{font-size:16px;margin:28px 0 12px}h3{font-size:12px;color:var(--mu);font-weight:600;margin-bottom:8px}
+.i{width:18px;height:18px;flex:none}.row{display:flex;gap:var(--s);align-items:center;flex-wrap:wrap}.sp{flex:1}.note,.g{color:var(--mu);font-size:12px;margin:6px 0}
+button,input,select,summary{font:inherit;color:var(--fg)}
+.btn,.ib,summary.btn,select,input[type=text],input[type=search]{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:6px 10px;min-height:34px}
+.btn,.ib,summary.btn{display:inline-flex;gap:6px;align-items:center;justify-content:center;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+.ib{padding:0;width:34px}.btn.p,summary.btn.p{background:var(--ac);border-color:var(--ac);color:var(--acf);font-weight:600}
+.btn:hover:not(:disabled),.ib:hover:not(:disabled){border-color:var(--ac)}button:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:none;box-shadow:var(--ring)}.bad{border-color:var(--bad)!important}
+input[type=text]{width:100%}input[type=color]{width:40px;height:34px;padding:2px;border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);flex:none}input[type=range]{width:100%;accent-color:var(--ac)}
+label{display:block;margin:10px 0 4px;font-size:12px;color:var(--mu)}
+#top{height:var(--hh);display:flex;align-items:center;gap:12px;padding:0 16px;background:var(--sf);border-bottom:1px solid var(--ln);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.brand{display:flex;gap:8px;align-items:center;background:none;border:0;cursor:pointer;padding:0;color:var(--ac)}.wm{font-size:22px;font-weight:800;font-stretch:62%;letter-spacing:1.5px;color:var(--fg)}.wm b{color:var(--ac);font-weight:800}
+#nav{display:flex;gap:4px}#nav button{background:none;border:0;padding:6px 10px;border-radius:var(--r);cursor:pointer;color:var(--mu)}#nav button[aria-current=page]{color:var(--fg);box-shadow:inset 0 -2px var(--ac);border-radius:0}
+#tb{display:flex;gap:var(--s);align-items:center;flex:1;min-width:0}#nm{max-width:260px;font-weight:600}
+.st{font-size:12px;color:var(--mu);display:flex;gap:6px;align-items:center;white-space:nowrap}.st::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac)}.st.u::before{background:var(--wn)}
+.menu{position:relative}.pop{position:absolute;right:0;top:40px;background:var(--sf);border:1px solid var(--ln);border-radius:var(--r2);box-shadow:var(--sh);padding:6px;display:grid;gap:2px;min-width:200px;z-index:25}
+.pop button{background:none;border:0;text-align:left;padding:8px 10px;border-radius:var(--r);cursor:pointer}.pop button:hover{background:var(--sk)}.pop p{margin:4px 10px;font-size:12px;color:var(--mu)}
+#lib,#price{max-width:1100px;margin:0 auto;padding:28px 16px 48px}.hd{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:end}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-top:16px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r2);overflow:hidden;text-align:left;padding:0}
+.card>.th,.card.ex{display:block;width:100%;background:var(--cv);border:0;padding:14px;cursor:pointer}.card svg{width:100%;height:auto;display:block}
+.meta{display:flex;justify-content:space-between;gap:6px;padding:10px 10px 10px 12px;align-items:center}.meta>div{min-width:0}.meta b,.meta span.m{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.m{font-size:12px;color:var(--mu)}
+.ex span{display:block;margin-top:8px;font-weight:600;text-align:center}.card.ex:hover,.card>.th:hover{background:var(--sk)}
+.empty{border:1px dashed var(--ln);border-radius:var(--r2);padding:28px;margin-top:16px;color:var(--mu)}
+#ed{display:grid;grid-template-columns:330px minmax(0,1fr) 320px;height:calc(100dvh - var(--hh) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
+.pnl{background:var(--sf);overflow:auto;padding:12px 16px;border-right:1px solid var(--ln)}.rvw{border-right:0;border-left:1px solid var(--ln)}
+.tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--ln);margin:-4px -16px 12px;padding:0 12px}.tabs button{background:none;border:0;padding:10px 8px;white-space:nowrap;cursor:pointer;color:var(--mu)}.tabs button[aria-selected=true]{color:var(--fg);box-shadow:inset 0 -2px var(--ac)}
+.sec{margin-bottom:20px}.seg{display:flex;border:1px solid var(--ln);border-radius:var(--r);overflow:hidden}.seg button{flex:1;background:var(--sf);border:0;border-right:1px solid var(--ln);padding:7px 4px;cursor:pointer}.seg button:last-child{border:0}.seg button[aria-pressed=true]{background:var(--ac);color:var(--acf)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.tile{background:var(--sf);border:1px solid var(--ln);border-radius:var(--r);padding:6px 4px;cursor:pointer;font-size:12px;display:grid;gap:4px;justify-items:center}.tile .thm{display:block;width:100%}.tile svg{width:100%;height:auto;display:block}.tile[aria-pressed=true]{border-color:var(--ac);box-shadow:inset 0 0 0 1px var(--ac)}
+.cv{display:flex;flex-direction:column;background:var(--cv);min-width:0}.cb{display:flex;gap:var(--s);align-items:center;padding:10px 16px}.cb .seg{width:180px}
+.stage{flex:1;display:grid;place-items:center;overflow:auto;padding:8px 24px 24px}#pv{width:min(100%,520px)}#pv svg{width:100%;height:auto;max-height:calc(100dvh - 190px);display:block;filter:drop-shadow(0 10px 16px rgba(0,0,0,.18))}
+.score{display:flex;align-items:baseline;gap:6px}.score b{font-size:44px;font-stretch:75%;font-weight:800;line-height:1}.bar{height:4px;background:var(--sk);border-radius:2px;margin:6px 0}.bar i{display:block;height:100%;background:var(--ac);border-radius:2px}
+.rv{padding:10px 0;border-top:1px solid var(--ln)}.rv p{margin:4px 0}.rv .rec{color:var(--mu);font-size:12px}.rh{display:flex;justify-content:space-between;gap:8px}.rh small{font-size:11px;margin-left:6px}.rv.ok small{color:var(--ac)}.rv.warn small{color:var(--wn)}.rv.issue small{color:var(--bad)}.rv.warn .bar i{background:var(--wn)}.rv.issue .bar i{background:var(--bad)}
+.lk{background:none;border:0;color:var(--ac);padding:2px 0;cursor:pointer;text-decoration:underline;font-size:12px}details>summary.t{cursor:pointer;font-weight:700;margin-bottom:8px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}.plan{border:1px solid var(--ln);background:var(--sf);border-radius:var(--r2);padding:20px}.plan ul{padding-left:18px;margin:10px 0}
+dialog{border:1px solid var(--ln);border-radius:var(--r2);background:var(--sf);color:var(--fg);max-width:380px;padding:20px;box-shadow:var(--sh)}dialog::backdrop{background:rgba(0,0,0,.45)}dialog form{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+#toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:9px 14px;border-radius:var(--r);z-index:40;max-width:92vw}#toast.err{background:var(--bad);color:#fff}
+@media(prefers-reduced-motion:no-preference){.btn,.ib,.tile,.seg button{transition:border-color .12s,background .12s}}
+@media(max-width:1100px){#ed{display:block;height:auto}.cv{height:auto}.stage{padding:0 16px 16px}#pv svg{max-height:62vh}.pnl,.rvw{border:0;border-top:1px solid var(--ln);overflow:visible}#nm{max-width:130px}.st{display:none}}
+@media(max-width:560px){#top{padding:0 8px;gap:6px}.wm{display:none}.cb .seg{width:140px}}
+</style></head><body>
+<header id="top"><button class="brand" id="brand" aria-label="KitForge library" data-ic="shirt"><span class="wm">KIT<b>FORGE</b></span></button>
+<nav id="nav" aria-label="Main"><button data-p="lib">Library</button><button data-p="price">About</button></nav>
+<div id="tb" hidden><button class="ib" id="bk" data-ic="back" title="Back to library" aria-label="Back to library"></button><input type="text" id="nm" data-k="name" maxlength="60" aria-label="Project name"><span class="st" id="st" role="status"></span><span class="sp"></span>
+<button class="ib" id="un" data-ic="undo" title="Undo (Ctrl+Z)" aria-label="Undo"></button><button class="ib" id="re" data-ic="redo" title="Redo (Ctrl+Shift+Z)" aria-label="Redo"></button><button class="btn" id="sv" data-ic="save">Save</button>
+<details class="menu" id="xm"><summary class="btn p" data-ic="dl">Export</summary><div class="pop"><p id="xv"></p><button id="xs">SVG artwork</button><button id="xp">PNG image</button><button id="xj">Project JSON</button></div></details></div></header>
+<main id="lib"><div class="hd"><h1>Your designs</h1><div class="row"><input type="search" id="q" placeholder="Search designs" aria-label="Search designs" class="btn" style="cursor:text"><select id="so" aria-label="Sort"><option value="t">Recently saved</option><option value="n">Name</option></select><button class="btn" id="imp" data-ic="up">Import JSON</button><button class="btn p" id="nw" data-ic="plus">New shirt</button></div></div>
+<div id="lg" class="grid"></div><div id="le" class="empty" hidden></div><h2>Start from an example</h2><div id="ex" class="grid"></div>
+<p class="note">Projects are stored in this browser only. They do not sync across devices and are not a guaranteed backup, so export JSON for copies.</p></main>
+<div id="ed" hidden><aside class="pnl" aria-label="Editing tools"><div class="tabs" id="tabs" role="tablist"></div><div id="tp"></div></aside>
+<section class="cv" aria-label="Shirt preview"><div class="cb"><div class="seg" id="vs"><button data-view="front">Front</button><button data-view="back">Back</button></div><span class="sp"></span><button class="ib" id="zo" data-ic="zout" title="Zoom out" aria-label="Zoom out"></button><button class="btn" id="zf" title="Reset zoom">100%</button><button class="ib" id="zi" data-ic="zin" title="Zoom in" aria-label="Zoom in"></button></div><div class="stage"><div id="pv"></div></div></section>
+<aside class="pnl rvw" aria-label="Design review"><details open><summary class="t">Design review</summary><div class="score"><b id="tot">0</b><span class="note">/ 100</span></div><div class="bar"><i id="tbar"></i></div><p class="note">A weighted summary of the rules below. It is a heuristic, not a measure of quality, sales or competition compliance.</p><div id="rep"></div></details></aside></div>
+<main id="price" hidden><h1>About KitForge</h1><p class="note">KitForge is free and open source. There are no accounts, no payments and no paid tiers.</p><div class="plans"><div class="plan"><h2 style="margin-top:0">What you get</h2><ul><li>Full shirt editor with three constructions</li><li>Six pattern families and six examples</li><li>Design review with measured checks</li><li>Local projects, SVG, PNG and JSON export</li></ul></div>
+<div class="plan"><h2 style="margin-top:0">Your data</h2><ul><li>Projects and images stay in your browser</li><li>Nothing is uploaded to a server</li><li>Export JSON to keep or share a copy</li></ul><p class="note">Browser storage is not synced or backed up.</p></div></div></main>
+<dialog id="dlg"><h3 id="dt" style="font-size:16px;color:var(--fg)"></h3><p id="dp" class="note" style="font-size:14px"></p><form method="dialog"><button class="btn" value="cancel">Cancel</button><button class="btn p" value="ok" id="dok"></button></form></dialog>
+<div id="toast" role="status" hidden></div><input type="file" id="cf" accept="image/png,image/jpeg,image/webp" hidden><input type="file" id="jf" accept=".json,application/json" hidden>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],HEX=/^#[0-9a-f]{6}$/i,KEY='kitforge.projects.v1';
+const FONTS={impact:'Impact,Haettenschweiler,sans-serif',serif:'Georgia,serif',mono:'Courier New,monospace',black:'Arial Black,Arial,sans-serif'};
+const DEF={v:1,name:'Untitled kit',tpl:0,base:'#1d4ed8',sec:'#f8fafc',acc:'#facc15',pat:'vstripe',inten:.8,sp:24,collar:'crew',cuff:'band',crest:'default',cs:1,sponsor:'FORGE',pname:'PLAYER',num:'10',font:'impact',tc:'#ffffff',view:'front'};
+const PRE=[['Minimal Harbor',{base:'#f4f4f0',sec:'#f4f4f0',acc:'#0b2545',pat:'solid',tc:'#0b2545',sponsor:'HARBOR'}],
+['Heritage Vale',{base:'#7a1f2b',sec:'#f1e4c3',acc:'#f1e4c3',pat:'hoop',sp:28,tpl:1,collar:'polo',tc:'#f1e4c3',font:'serif',sponsor:'VALE'}],
+['Geo North',{base:'#0f766e',sec:'#fbbf24',acc:'#0f172a',pat:'geo',sp:36,sponsor:'NORTH'}],
+['Retro Sol',{base:'#f59e0b',sec:'#b45309',acc:'#1c1917',pat:'diag',sp:20,tpl:2,collar:'v',tc:'#1c1917',font:'mono',sponsor:'SOL'}],
+['Night Voltage',{base:'#0a0a0a',sec:'#a3e635',acc:'#a3e635',pat:'vstripe',sp:14,inten:.9,tpl:1,tc:'#a3e635',sponsor:'VOLT'}],
+['Slate Tonal',{base:'#334155',sec:'#000000',acc:'#94a3b8',pat:'tonal',sp:12,inten:.6,tc:'#e2e8f0',sponsor:'SLATE'}]];
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function norm(o){if(!o||typeof o!='object')o={};const r={...DEF},en=(k,a)=>{if(a.includes(o[k]))r[k]=o[k]},nm=(k,lo,hi)=>{const x=+o[k];if((typeof o[k]=='number'||(typeof o[k]=='string'&&o[k].trim()!==''))&&isFinite(x))r[k]=Math.min(hi,Math.max(lo,x))};
+['base','sec','acc','tc'].forEach(k=>{if(HEX.test(o[k]))r[k]=o[k].toLowerCase()});
+if([0,1,2].includes(o.tpl)||['0','1','2'].includes(o.tpl))r.tpl=+o.tpl;
+en('pat',['solid','vstripe','hoop','diag','geo','tonal']);en('collar',['crew','v','polo']);en('cuff',['none','band','dbl']);en('font',Object.keys(FONTS));en('view',['front','back']);
+nm('inten',.1,1);nm('sp',10,60);nm('cs',.6,1.6);
+for(const [k,n] of [['name',60],['sponsor',14],['pname',14]])if(typeof o[k]=='string')r[k]=o[k].slice(0,n);
+if(typeof o.num=='string')r.num=o.num.replace(/\D/g,'').slice(0,2);
+if(o.crest=='none'||o.crest=='default')r.crest=o.crest;else if(typeof o.crest=='string'&&o.crest.length<600000){const m=/^data:image\/(png|jpeg|webp);base64,([A-Za-z0-9+\/=]+)$/.exec(o.crest);if(m&&m[2].startsWith({png:'iVBORw0KGg',jpeg:'/9j/',webp:'UklG'}[m[1]]))r.crest=o.crest}
+if(typeof o.id=='string'&&/^[\w-]{1,40}$/.test(o.id))r.id=o.id;return r}
+/* colour maths */
+const lin=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4},lum=h=>{const n=parseInt(h.slice(1),16);return .2126*lin(n>>16)+.7152*lin(n>>8&255)+.0722*lin(n&255)};
+const cr=(a,b)=>{const x=lum(a),y=lum(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+const hs=h=>{const n=parseInt(h.slice(1),16),r=(n>>16)/255,g=(n>>8&255)/255,b=(n&255)/255,M=Math.max(r,g,b),m=Math.min(r,g,b),d=M-m;let H=0;if(d){H=M==r?((g-b)/d)%6:M==g?(b-r)/d+2:(r-g)/d+4;H=(H*60+360)%360}return[H,M?d/M:0]};
+/* renderer */
+const BODY=["M140 30L70 55L18 150L68 178L96 135V410Q200 428 304 410V135L332 178L382 150L330 55L260 30Z","M140 30L70 55L18 150L68 178L96 135V410Q200 428 304 410V135L332 178L382 150L330 55L260 30Z","M140 30L70 55L30 235L74 250L96 150V410Q200 428 304 410V150L326 250L370 235L330 55L260 30Z"];
+function pattern(s){const c=s.sec,o=s.inten,p=s.sp;let r='';
+if(s.pat=='vstripe')for(let x=0;x<400;x+=p*2)r+=`<rect x="${x}" width="${p}" height="440" fill="${c}" opacity="${o}"/>`;
+if(s.pat=='hoop')for(let y=10;y<440;y+=p*2)r+=`<rect y="${y}" width="400" height="${p}" fill="${c}" opacity="${o}"/>`;
+if(s.pat=='diag'){r='<g transform="rotate(35 200 220)">';for(let x=-250;x<650;x+=p*2)r+=`<rect x="${x}" y="-250" width="${p}" height="940" fill="${c}" opacity="${o}"/>`;r+='</g>'}
+if(s.pat=='geo'){const h=p/2+4;for(let y=0,j=0;y<460;y+=h*1.6,j++)for(let x=(j%2)*h;x<420;x+=h*2)r+=`<path d="M${x} ${y-h}L${x+h} ${y}L${x} ${y+h}L${x-h} ${y}Z" fill="${c}" opacity="${o}"/>`}
+if(s.pat=='tonal')for(let x=0;x<400;x+=p)r+=`<rect x="${x}" width="${p/2}" height="440" fill="#000" opacity="${o*.12}"/>`;
+return r}
+function shirt(s,v,u){const b=BODY[s.tpl],bk=v=='back',T=s.tc,ff=FONTS[s.font],ln=(a,w,d)=>`<path d="${a}" stroke="${s.acc}" stroke-width="${w}" fill="none" ${d||''}/>`;
+let o=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" width="400" height="440"><defs><clipPath id="c${u}"><path d="${b}"/></clipPath><linearGradient id="g${u}" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".16"/><stop offset=".35" stop-color="#fff" stop-opacity=".08"/><stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient></defs><g clip-path="url(#c${u})"><rect width="400" height="440" fill="${s.base}"/>${pattern(s)}`;
+if(s.tpl==1)o+=`<path d="M140 30L70 55L18 150L68 178L96 135Z" fill="${s.sec}"/><path d="M260 30L330 55L382 150L332 178L304 135Z" fill="${s.sec}"/>`;
+if(s.tpl==2)o+=`<rect x="96" y="150" width="26" height="280" fill="${s.sec}"/><rect x="278" y="150" width="26" height="280" fill="${s.sec}"/>`;
+if(s.cuff!='none'){const L=s.tpl==2?['M30 235L74 250','M370 235L326 250']:['M18 150L68 178','M382 150L332 178'];for(const a of L){o+=ln(a,12);if(s.cuff=='dbl')o+=ln(a,5,'transform="translate(0 -16)"')}}
+o+=`<rect width="400" height="440" fill="url(#g${u})"/></g><path d="${b}" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/><path d="${s.tpl==1?'M140 30L96 135M260 30L304 135':'M96 135V410M304 135V410'}" stroke="#000" stroke-opacity=".2" fill="none"/>`;
+const neck=s.collar=='v'?`M140 30L200 ${bk?62:112}L260 30`:`M140 30Q200 ${bk?58:100} 260 30`;
+o+=`<path d="${neck}Z" fill="#000" fill-opacity=".3"/>`+ln(neck,9);
+if(s.collar=='polo'){o+=`<path d="M136 26L178 64L160 92L126 50Z" fill="${s.acc}" stroke="#000" stroke-opacity=".3"/><path d="M264 26L222 64L240 92L274 50Z" fill="${s.acc}" stroke="#000" stroke-opacity=".3"/>`;if(!bk)o+=ln('M200 100V150',3)}
+const tx=(t,x,y,sz,extra)=>t?`<text x="${x}" y="${y}" font-family="${ff}" font-size="${sz}" fill="${T}" text-anchor="middle" stroke="${s.base}" stroke-width="2" paint-order="stroke" ${extra||''}>${esc(t)}</text>`:'';
+const fit=(t,max)=>t.length>max?`textLength="${Math.min(190,t.length*(max>9?15:17))}" lengthAdjust="spacingAndGlyphs"`:'';
+if(bk){o+=tx(s.pname.toUpperCase(),200,108,24,fit(s.pname,8)+' letter-spacing="2"')+tx(s.num,200,275,150)}
+else{if(s.crest=='default')o+=`<g transform="translate(150 112) scale(${s.cs})"><path d="M-20-22H20V6Q20 26 0 34Q-20 26-20 6Z" fill="${s.sec}" stroke="${s.acc}" stroke-width="3"/><path d="M0-12L10 4L0 20L-10 4Z" fill="${s.acc}"/></g>`;
+else if(s.crest!='none')o+=`<image href="${s.crest}" x="${150-24*s.cs}" y="${112-27*s.cs}" width="${48*s.cs}" height="${54*s.cs}" preserveAspectRatio="xMidYMid meet"/>`;
+o+=tx(s.sponsor.toUpperCase(),200,225,28,fit(s.sponsor,9))+tx(s.num,252,132,34)}
+return o+'</svg>'}
+/* analysis */
+function analyse(s){const R=[],add=(cat,w,sc,type,msg,rec)=>R.push({cat,w,sc,type,msg,rec,sev:sc>=80?'ok':sc>=55?'warn':'issue'});
+const cols=[s.base,s.sec,s.acc].map(hs),bins=new Set(cols.filter(c=>c[1]>.25).map(c=>Math.round(c[0]/40)%9));
+add('Colour harmony',.15,bins.size<=2?100:bins.size==3?70:40,'Advice',`${bins.size} distinct hue families across base, secondary and accent.`,bins.size>2?'Limit the palette to two hue families plus a neutral.':'Compact palette.');
+const r1=cr(T(s),s.base),rs=cr(T(s),s.sec),r=s.pat=='solid'?r1:Math.min(r1,rs);
+add('Text contrast',.25,r>=7?100:r>=4.5?85:r>=3?55:20,'Measured',`Text colour vs ${s.pat=='solid'?'base':'worst of base/secondary'}: ${r.toFixed(2)}:1 (WCAG relative-luminance formula; 4.5:1 is a common legibility guideline, not a kit rule).`,r>=4.5?'Contrast is adequate.':'Choose a text colour with more luminance difference from the shirt.');
+const busy=s.pat!='solid'&&s.inten>.75&&cr(s.base,s.sec)>2,nv=/^\d{1,2}$/.test(s.num);
+add('Number readability',.15,Math.max(0,(nv?100:25)-(busy?25:0)),busy?'Advice':'Measured',nv?(busy?'Strong pattern behind the number may reduce legibility.':'Number is valid (0–99).'):'Number is empty or not 0–99.',nv?(busy?'Lower pattern intensity or use a plain back panel.':'No action needed.'):'Enter a number between 0 and 99.');
+const long=s.sponsor.length>10||s.pname.length>12;
+add('Visual hierarchy',.1,long?65:100,'Advice',long?'Long text is condensed to fit the chest or back.':'Text lengths leave room for the number to lead.',long?'Shorten sponsor or name text.':'Good.');
+const hc=s.crest!='none',sp=!!s.sponsor.trim();
+add('Crest and sponsor balance',.1,hc&&sp?(s.cs>1.4?65:100):hc||sp?75:45,'Advice',`Crest: ${hc?'yes':'no'}, sponsor: ${sp?'yes':'no'}${s.cs>1.4?', crest is very large':''}.`,hc&&sp&&s.cs<=1.4?'Balanced.':'Use one crest and one sponsor at moderate size.');
+const ef=s.pat=='solid'?0:s.inten*Math.min(cr(s.base,s.sec),5)/5;
+add('Pattern intensity',.1,s.pat=='solid'?100:ef>.7?55:ef<.1?60:100,'Measured',s.pat=='solid'?'Solid, no pattern.':`Effective pattern strength ${ef.toFixed(2)} (intensity × base/secondary contrast).`,ef>.7?'Reduce intensity or pick closer colours.':ef<.1?'Pattern is barely visible; increase contrast or intensity.':'Pattern strength is moderate.');
+const bo=!!s.pname.trim()&&nv;
+add('Front/back consistency',.05,bo?100:40,'Measured',bo?'Both views share one project state; back has name and number.':'Back view is missing a name or number.',bo?'Consistent.':'Fill in name and number.');
+const nmok=!!s.name.trim();
+add('Export readiness',.1,nmok?70:40,'Measured',(nmok?'Artwork can be exported.':'Project has no name.')+' No print specification (colour profile, dimensions, bleed, material) is defined, so this is not production-ready.',"Treat exports as concept artwork and confirm specifications with a manufacturer.");
+return{R,t:Math.round(R.reduce((a,x)=>a+x.w*x.sc,0)/R.reduce((a,x)=>a+x.w,0))}}
+const T=s=>s.tc;
+const rd=()=>{try{const a=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(a)?a.filter(x=>x&&typeof x=='object'&&x.data&&typeof x.data=='object'&&typeof x.id=='string'&&/^[\w-]{1,40}$/.test(x.id)).map(x=>({...x,t:+x.t||0})):[]}catch{return[]}};
+const wr=a=>{try{localStorage.setItem(KEY,JSON.stringify(a));return true}catch{msg('Could not save: browser storage is full or unavailable. Export JSON to keep your work.',1);return false}};
+function dl(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)}
+const slug=()=>(S.name.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'kit')+'-'+S.view;
+const IC={shirt:'M8 3 2 6l2 5 3-1v11h10V10l3 1 2-5-6-3q-1 3-4 3T8 3z',back:'m15 18-6-6 6-6',undo:'M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11',redo:'m15 14 5-5-5-5M20 9H9.5a5.5 5.5 0 0 0 0 11H13',dl:'M12 3v12m0 0-4-4m4 4 4-4M4 21h16',plus:'M12 5v14M5 12h14',zin:'M12 5v14M5 12h14',zout:'M5 12h14',trash:'M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14',copy:'M9 9h11v11H9zM5 15H4V4h11v1',save:'M5 4h11l3 3v13H5zM8 4v5h7M8 20v-6h8v6',up:'M12 16V4m0 0L8 8m4-4 4 4M4 20h16'};
+const ic=n=>`<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${IC[n]}"/></svg>`;
+const icons=r=>r.querySelectorAll('[data-ic]').forEach(e=>{if(!e.querySelector('.i'))e.insertAdjacentHTML('afterbegin',ic(e.dataset.ic))});
+let S=norm({}),H=[JSON.stringify(S)],hi=0,dirtyF=false,page='lib',tab='shirt',zoom=1;
+const TN={0:'Classic',1:'Raglan',2:'Long sleeve'},PN={solid:'Solid',vstripe:'Stripes',hoop:'Hoops',diag:'Diagonal',geo:'Geometric',tonal:'Tonal'};
+let tt;function msg(t,e){const m=$('#toast');m.textContent=t;m.className=e?'err':'';m.hidden=false;clearTimeout(tt);tt=setTimeout(()=>m.hidden=true,4000)}
+const ask=(t,p,ok)=>new Promise(r=>{const d=$('#dlg');$('#dt').textContent=t;$('#dp').textContent=p;$('#dok').textContent=ok;d.returnValue='';d.onclose=()=>r(d.returnValue=='ok');d.showModal()});
+/* controls */
+const sec=(t,h,g)=>`<div class="sec"><h3>${t}</h3>${g?`<p class="g">${g}</p>`:''}${h}</div>`;
+const seg=(k,o)=>`<div class="seg">${o.map(([v,l])=>`<button data-k="${k}" data-v="${v}" aria-pressed="false">${l}</button>`).join('')}</div>`;
+const tile=(k,v,l)=>`<button class="tile" data-k="${k}" data-v="${v}" aria-pressed="false"><span class="thm" data-th></span><span>${l}</span></button>`;
+const col=(k,l)=>`<label for="f_${k}">${l}</label><div class="row"><input type="color" id="f_${k}" data-k="${k}"><input type="text" data-k="${k}" data-hex maxlength="7" style="width:110px" aria-label="${l} hex" spellcheck="false"></div>`;
+const rng=(k,l,a,b,c)=>`<label for="f_${k}">${l}</label><input type="range" id="f_${k}" data-k="${k}" min="${a}" max="${b}" step="${c}">`;
+const txt=(k,l,n)=>`<label for="f_${k}">${l}</label><input type="text" id="f_${k}" data-k="${k}" maxlength="${n}">`;
+const TABS={shirt:['Shirt',()=>sec('Construction',`<div class="tiles">${[0,1,2].map(i=>tile('tpl',i,TN[i])).join('')}</div>`,'Three distinct cuts. Colours and pattern carry over.')+sec('Collar',seg('collar',[['crew','Crew'],['v','V-neck'],['polo','Polo']]))+sec('Cuffs',seg('cuff',[['none','None'],['band','Band'],['dbl','Double']]))],
+colour:['Colour',()=>sec('Kit colours',col('base','Base')+col('sec','Secondary')+col('acc','Accent')+col('tc','Text and number'),'Contrast of text against the shirt is checked in the review.')],
+pattern:['Pattern',()=>sec('Pattern',`<div class="tiles">${Object.keys(PN).map(p=>tile('pat',p,PN[p])).join('')}</div>`)+sec('Settings',rng('inten','Intensity',.1,1,.05)+rng('sp','Thickness',10,60,2))],
+marks:['Crest & sponsor',()=>sec('Crest',`<div class="row"><button class="btn" id="cup" data-ic="up">Upload</button><button class="btn" data-crest="default">Default</button><button class="btn" data-crest="none">None</button></div>${rng('cs','Size',.6,1.6,.1)}`,'PNG, JPEG or WebP up to 300 KB. Images stay in your browser.')+sec('Sponsor',txt('sponsor','Chest text',14))],
+text:['Name & number',()=>sec('Player',txt('pname','Name',14)+txt('num','Number (0–99)',2))+sec('Typeface',seg('font',Object.keys(FONTS).map(f=>[f,`<span style="font-family:${FONTS[f]}">Aa</span> ${f=='black'?'Heavy':f[0].toUpperCase()+f.slice(1)}`])))]};
+$('#tabs').innerHTML=Object.entries(TABS).map(([k,v])=>`<button role="tab" data-tab="${k}">${v[0]}</button>`).join('');
+function setTab(t){tab=t;$$('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab==t));$('#tp').innerHTML=TABS[t][1]();icons($('#tp'));sync()}
+function sync(){$$('input[data-k],select[data-k]').forEach(e=>{if(e==document.activeElement)return;e.value=S[e.dataset.k];e.classList.remove('bad')});
+$$('[data-v]').forEach(b=>b.setAttribute('aria-pressed',String(S[b.dataset.k])==b.dataset.v));
+$$('[data-th]').forEach(s=>{const b=s.parentNode,k=b.dataset.k,v=b.dataset.v,o={...S,sponsor:'',num:'',pname:'',crest:'none'};o[k]=k=='tpl'?+v:v;s.innerHTML=shirt(o,'front','th'+k+v)})}
+/* review */
+const CTL={'Colour harmony':['colour','f_base','colours'],'Text contrast':['colour','f_tc','text colour'],'Number readability':['text','f_num','number'],'Visual hierarchy':['text','f_pname','name text'],'Crest and sponsor balance':['marks','f_sponsor','sponsor'],'Pattern intensity':['pattern','f_inten','pattern intensity'],'Front/back consistency':['text','f_pname','name and number']};
+function review(){const a=analyse(S);$('#tot').textContent=a.t;$('#tbar').style.width=a.t+'%';
+const g=t=>a.R.filter(x=>x.type==t).map(x=>`<div class="rv ${x.sev}"><div class="rh"><span>${x.cat}<small>${x.sev=='ok'?'Strength':x.sev=='warn'?'Review':'Issue'}</small></span><b>${x.sc}</b></div><div class="bar"><i style="width:${x.sc}%"></i></div><p>${esc(x.msg)}</p><p class="rec">${esc(x.rec)}</p>${x.sev!='ok'?(CTL[x.cat]?`<button class="lk" data-fix="${esc(x.cat)}">Adjust ${CTL[x.cat][2]}</button>`:'<button class="lk" data-fix="name">Rename project</button>'):''}</div>`).join('');
+$('#rep').innerHTML=`<h3>Measured checks</h3>${g('Measured')}<h3 style="margin-top:16px">Design advice</h3>${g('Advice')}`}
+/* render */
+function render(){if(page!='ed')return;$('#pv').innerHTML=shirt(S,S.view,'m');$('#pv').style.width=`min(100%,${Math.round(520*zoom)}px)`;$('#zf').textContent=Math.round(zoom*100)+'%';
+$$('#vs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view==S.view));sync();review();$('#xv').textContent='Exports the current view: '+S.view;
+$('#un').disabled=hi==0;$('#re').disabled=hi==H.length-1;const st=$('#st');st.textContent=dirtyF?'Unsaved changes':S.id?'Saved':'Not saved yet';st.className='st'+(dirtyF||!S.id?' u':'')}
+function commit(){const j=JSON.stringify(S);if(j!=H[hi]){H=H.slice(0,hi+1);H.push(j);if(H.length>100)H.shift();hi=H.length-1;dirtyF=true}render()}
+function hist(d){const n=hi+d;if(n<0||n>=H.length)return;const id=S.id;hi=n;S=norm(JSON.parse(H[hi]));if(id)S.id=id;dirtyF=true;render()}
+function load(o){S=norm(o);H=[JSON.stringify(S)];hi=0;dirtyF=false}
+function show(p){page=p;for(const x of['lib','ed','price'])$('#'+x).hidden=x!=p;$('#nav').hidden=p=='ed';$('#tb').hidden=p!='ed';$$('#nav button').forEach(b=>b.toggleAttribute('aria-current',b.dataset.p==p)&&b.setAttribute('aria-current','page'));
+$$('#nav button').forEach(b=>{if(b.dataset.p!=p)b.removeAttribute('aria-current')});scrollTo(0,0);if(p=='lib')lib();if(p=='ed')setTab(tab),render()}
+function openEd(o,d){load(o);dirtyF=!!d;show('ed')}
+/* library */
+function lib(){const q=$('#q').value.toLowerCase(),all=rd(),a=all.map(x=>({...x,d:norm(x.data)})).filter(x=>x.d.name.toLowerCase().includes(q));a.sort($('#so').value=='n'?(x,y)=>x.d.name.localeCompare(y.d.name):(x,y)=>y.t-x.t);
+$('#lg').innerHTML=a.map((x,i)=>`<article class="card"><button class="th" data-a="o" data-i="${esc(x.id)}" aria-label="Open ${esc(x.d.name)}">${shirt(x.d,'front','l'+i)}</button><div class="meta"><div><b>${esc(x.d.name)}</b><span class="m">${TN[x.d.tpl]} · ${PN[x.d.pat]} · ${new Date(x.t).toLocaleDateString()}</span></div><span class="row" style="flex-wrap:nowrap;gap:2px"><button class="ib" style="border:0" data-a="d" data-i="${esc(x.id)}" title="Duplicate" aria-label="Duplicate ${esc(x.d.name)}">${ic('copy')}</button><button class="ib" style="border:0" data-a="x" data-i="${esc(x.id)}" title="Delete" aria-label="Delete ${esc(x.d.name)}">${ic('trash')}</button></span></div></article>`).join('');
+$('#le').hidden=a.length>0;$('#le').innerHTML=all.length?'No designs match your search.':'<b>No saved designs yet.</b><br>Create a new shirt, or open an example below and save it.';
+$('#ex').innerHTML=PRE.map((p,i)=>`<button class="card ex" data-a="e" data-i="${i}">${shirt(norm({...DEF,...p[1],name:p[0]}),'front','e'+i)}<span>${p[0]}</span></button>`).join('')}
+$('#lib').addEventListener('click',async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=rd(),p=a.find(x=>x.id==b.dataset.i),k=b.dataset.a;
+if(k=='e'){const q=PRE[+b.dataset.i];return openEd({...DEF,...q[1],name:q[0]})}if(!p)return;
+if(k=='o')openEd(p.data);
+if(k=='d'){const c=norm(p.data);c.id='p'+Date.now().toString(36);c.name=c.name.slice(0,52)+' copy';a.push({id:c.id,t:Date.now(),data:c});if(wr(a)){lib();msg('Duplicated.')}}
+if(k=='x'&&await ask('Delete this design?','"'+norm(p.data).name+'" will be removed from this browser. This cannot be undone.','Delete')&&wr(a.filter(x=>x.id!=p.id))){lib();msg('Deleted.')}});
+$('#q').oninput=lib;$('#so').onchange=lib;$('#nw').onclick=()=>openEd({});
+/* editing */
+function ap(e,c){const t=e.target,k=t.dataset.k;if(!k||t.tagName=='BUTTON')return;let v=t.value;if(t.type=='range')v=parseFloat(v);
+if(t.dataset.hex!==undefined){const w=/^#?[0-9a-f]{6}$/i.test(v);t.classList.toggle('bad',!w);if(!w){if(c)msg('Enter a 6-digit hex colour such as #1d4ed8.',1);return}v=(v[0]=='#'?v:'#'+v).toLowerCase()}
+if(k=='num'){v=v.replace(/\D/g,'').slice(0,2);t.value=v}S[k]=v;if(c)commit();else{dirtyF=true;render()}}
+for(const s of['#tp','#nm'])$(s).addEventListener('input',e=>ap(e,0)),$(s).addEventListener('change',e=>ap(e,1));
+$('#tp').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.id=='cup')return $('#cf').click();
+if(b.dataset.crest){S.crest=b.dataset.crest;commit()}else if(b.dataset.v!==undefined){S[b.dataset.k]=b.dataset.k=='tpl'?+b.dataset.v:b.dataset.v;commit()}});
+$('#tabs').onclick=e=>{const b=e.target.closest('[data-tab]');if(b)setTab(b.dataset.tab)};
+$('#rep').onclick=e=>{const b=e.target.closest('[data-fix]');if(!b)return;if(b.dataset.fix=='name')return $('#nm').focus();const c=CTL[b.dataset.fix];setTab(c[0]);$('#'+c[1]).focus()};
+$('#vs').onclick=e=>{const b=e.target.closest('[data-view]');if(b){S.view=b.dataset.view;render()}};
+$('#zo').onclick=()=>{zoom=Math.max(.6,+(zoom-.1).toFixed(1));render()};$('#zi').onclick=()=>{zoom=Math.min(1.3,+(zoom+.1).toFixed(1));render()};$('#zf').onclick=()=>{zoom=1;render()};
+$('#un').onclick=()=>hist(-1);$('#re').onclick=()=>hist(1);
+addEventListener('keydown',e=>{if(page!='ed'||!(e.ctrlKey||e.metaKey)||e.key.toLowerCase()!='z'||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;e.preventDefault();hist(e.shiftKey?1:-1)});
+$('#bk').onclick=async()=>{if(dirtyF&&!await ask('Leave without saving?','Changes since your last save will be lost.','Leave'))return;dirtyF=false;show('lib')};
+addEventListener('beforeunload',e=>{if(dirtyF){e.preventDefault();e.returnValue=''}});
+$('#brand').onclick=()=>$('#bk').onclick&&(page=='ed'?$('#bk').onclick():show('lib'));$$('#nav button').forEach(b=>b.onclick=()=>show(b.dataset.p));
+$('#cf').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
+if(!['image/png','image/jpeg','image/webp'].includes(f.type))return msg('Unsupported file type. Use PNG, JPEG or WebP.',1);
+if(f.size>307200)return msg('File is larger than 300 KB. Use a smaller image.',1);
+const r=new FileReader();r.onerror=()=>msg('Could not read the file.',1);r.onload=()=>{const u=r.result,im=new Image();im.onerror=()=>msg('The file is not a valid image.',1);im.onload=()=>{if(norm({crest:u}).crest!=u)return msg('The file contents do not match its image type.',1);S.crest=u;commit();msg('Crest added.')};im.src=u};r.readAsDataURL(f)};
+/* save and files */
+$('#sv').onclick=()=>{const a=rd();if(!S.id)S.id='p'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);const i=a.findIndex(x=>x.id==S.id),rec={id:S.id,t:Date.now(),data:S};if(i<0)a.push(rec);else a[i]=rec;if(wr(a)){dirtyF=false;H[hi]=JSON.stringify(S);render();msg('Saved to this browser.')}};
+const cl=()=>$('#xm').open=false;
+$('#xs').onclick=()=>{cl();dl(new Blob([shirt(S,S.view,'x')],{type:'image/svg+xml'}),slug()+'.svg');msg('SVG file generated.')};
+$('#xj').onclick=()=>{cl();dl(new Blob([JSON.stringify(S,null,1)],{type:'application/json'}),slug()+'.json');msg('JSON file generated.')};
+$('#xp').onclick=async()=>{cl();try{await document.fonts.ready;const im=new Image(),u=URL.createObjectURL(new Blob([shirt(S,S.view,'x')],{type:'image/svg+xml'}));
+await new Promise((ok,no)=>{im.onload=ok;im.onerror=no;im.src=u});const c=document.createElement('canvas');c.width=1200;c.height=1320;c.getContext('2d').drawImage(im,0,0,1200,1320);URL.revokeObjectURL(u);
+c.toBlob(b=>{if(!b)return msg('PNG export failed.',1);dl(b,slug()+'.png');msg('PNG file generated.')},'image/png')}catch{msg('PNG export failed in this browser. Try SVG export.',1)}};
+$('#imp').onclick=()=>$('#jf').click();
+$('#jf').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(f.size>1048576)return msg('Import rejected: file is larger than 1 MB.',1);
+const r=new FileReader();r.onerror=()=>msg('Could not read the file.',1);r.onload=()=>{let o;try{o=JSON.parse(r.result)}catch{return msg('Import rejected: not valid JSON.',1)}
+if(!o||typeof o!='object'||Array.isArray(o)||!('base' in o||'tpl' in o||'pat' in o))return msg('Import rejected: this is not a KitForge project.',1);
+if(o.v!==undefined&&o.v!==1)return msg('Import rejected: unsupported project version.',1);delete o.id;openEd(o,1);msg('Project imported. Save to keep it.')};r.readAsText(f)};
+document.addEventListener('click',e=>{if(!e.target.closest('#xm'))$('#xm').open=false});icons(document);show('lib');
+</script></body></html>
